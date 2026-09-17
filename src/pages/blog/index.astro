@@ -14,10 +14,8 @@ const posts = (await getCollection("blog")).sort(
             <h1 class="title is-1" data-jc-id="T5KNR0" data-jc-content="home.title">
                 Ideas, insights, and<br /> what we're thinking about
             </h1>
-            <p class="subtitle is-4 mt-4 u-constrained" data-jc-id="T5KMYI" data-jc-content="home.text.2">
-                Notes from the Studio Pulse team on branding, strategy,
-                creative process, and the craft of communication.
-            </p>
+            <p class="subtitle is-4 mt-4 u-constrained" data-jc-id="T5KMYI" data-jc-content="home.text.2">Notes from the Studio Pulse team on branding, strategy,
+                creative process, and the craft of communication.</p>
         </div>
     </section>
 
@@ -25,9 +23,7 @@ const posts = (await getCollection("blog")).sort(
         <div class="container u-prose" data-jc-id="T5KKS0">
             {
                 posts.length === 0 ? (
-                    <p class="has-text-centered has-text-muted" data-jc-id="T5KK0L" data-jc-content="home.text.3">
-                        No posts yet. Check back soon.
-                    </p>
+                    <p class="has-text-centered has-text-muted" data-jc-id="T5KK0L" data-jc-content="home.text.3">No posts yet. Check back soon.</p>
                 ) : (
                     <div class="blog-list" data-jc-id="JLMB0U">
                         {posts.map((post) => (
@@ -54,7 +50,7 @@ const posts = (await getCollection("blog")).sort(
                                     </a>
                                 </h2>
                                 <p class="blog-card-excerpt" data-jc-id="JLN0CW">{post.data.description}</p>
-                                <p class="blog-card-author" data-jc-id="JLN12P" data-jc-content="home.text.4">By {post.data.author}</p>
+                                <p class="blog-card-author" data-jc-id="JLN12P" data-jc-content="home.text.4">By</p>
                             </article>
                         ))}
                     </div>
