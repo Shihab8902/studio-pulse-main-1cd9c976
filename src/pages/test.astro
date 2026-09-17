@@ -1,0 +1,16 @@
+---
+// Test page
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Test" description="Welcome to the Test page." data-jc-id="W14VWW">
+    <section class="min-h-[60vh] w-full px-6 py-24" data-jc-id="W14WKW">
+            <form class="w-full max-w-md mx-auto rounded-lg border border-gray-200 bg-white p-4 shadow-sm dark:border-gray-700 dark:bg-gray-800" data-jc-id="LLJ756" data-jellycube-form-id="frm_9315df246ff542fc8627f2f8" action="https://jellycube-api.taftech.workers.dev/forms/frm_9315df246ff542fc8627f2f8/submit" method="POST"><div class="mb-4"><label class="block mb-1 text-sm font-medium text-gray-700 dark:text-gray-300">Name</label><input type="text" name="name" placeholder="Enter your name" class="w-full h-11 px-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-100" /></div><div class="mb-4"><label class="block mb-1 text-sm font-medium text-gray-700 dark:text-gray-300">Email</label><input type="email" name="email" placeholder="you@example.com" class="w-full h-11 px-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-100" /></div><div class="mb-4"><label class="block mb-1 text-sm font-medium text-gray-700 dark:text-gray-300">Subject</label><select name="subject" class="w-full h-11 px-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-100"><option value="">Select an option...</option><option value="general">General enquiry</option><option value="support">Support</option><option value="sales">Sales</option></select></div><button type="submit" class="w-full h-11 px-4 bg-indigo-600 text-white font-medium rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition-colors">Submit</button></form>
+<div class="mx-auto w-full max-w-5xl" data-jc-id="W14WPC">
+        <h1 class="text-4xl md:text-6xl font-extrabold mb-4 text-current" data-jc-id="W14XBN" data-jc-content="test.title">Test</h1>
+        <p class="max-w-2xl text-lg opacity-70" data-jc-id="W14Y0Q" data-jc-content="test.description">Welcome to the Test page.</p>
+      </div>
+    </section>
+</Layout>
