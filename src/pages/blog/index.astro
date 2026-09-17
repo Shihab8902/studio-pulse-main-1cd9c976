@@ -1,0 +1,65 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+
+const posts = (await getCollection("blog")).sort(
+    (a, b) => b.data.date.getTime() - a.data.date.getTime(),
+);
+---
+
+<Layout title="Blog" currentPage="blog" data-jc-id="T5KP9A">
+    <section class="section section-hero" data-jc-id="T5KP5P">
+        <div class="container has-text-centered" data-jc-id="T5KOJE">
+            <p class="tag is-primary is-medium mb-5" data-jc-id="T5KOEZ" data-jc-content="home.description">Journal</p>
+            <h1 class="title is-1" data-jc-id="T5KNR0" data-jc-content="home.title">
+                Ideas, insights, and<br /> what we're thinking about
+            </h1>
+            <p class="subtitle is-4 mt-4 u-constrained" data-jc-id="T5KMYI" data-jc-content="home.text.2">
+                Notes from the Studio Pulse team on branding, strategy,
+                creative process, and the craft of communication.
+            </p>
+        </div>
+    </section>
+
+    <section class="section has-bg-elevated" data-jc-id="T5KLEE">
+        <div class="container u-prose" data-jc-id="T5KKS0">
+            {
+                posts.length === 0 ? (
+                    <p class="has-text-centered has-text-muted" data-jc-id="T5KK0L" data-jc-content="home.text.3">
+                        No posts yet. Check back soon.
+                    </p>
+                ) : (
+                    <div class="blog-list" data-jc-id="JLMB0U">
+                        {posts.map((post) => (
+                            <article class="blog-card" data-jc-id="JLMBRI">
+                                <div class="blog-card-meta" data-jc-id="JLMBWO">
+                                    <span class="blog-card-date" data-jc-id="JLMCK2">
+                                        {post.data.date.toLocaleDateString("en-US", {
+                                            year: "numeric",
+                                            month: "short",
+                                            day: "numeric",
+                                        })}
+                                    </span>
+                                    {post.data.tags && (
+                                        <div class="blog-card-tags" data-jc-id="JLMG7V">
+                                            {post.data.tags.map((t) => (
+                                                <span class="tag" data-jc-id="JLMH2V">{t}</span>
+                                            ))}
+                                        </div>
+                                    )}
+                                </div>
+                                <h2 class="blog-card-title" data-jc-id="JLMYQ7">
+                                    <a href={`/blog/${post.id}/`} data-jc-id="JLMYVI">
+                                        {post.data.title}
+                                    </a>
+                                </h2>
+                                <p class="blog-card-excerpt" data-jc-id="JLN0CW">{post.data.description}</p>
+                                <p class="blog-card-author" data-jc-id="JLN12P" data-jc-content="home.text.4">By {post.data.author}</p>
+                            </article>
+                        ))}
+                    </div>
+                )
+            }
+        </div>
+    </section>
+</Layout>

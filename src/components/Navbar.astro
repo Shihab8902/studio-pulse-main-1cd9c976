@@ -1,0 +1,99 @@
+---
+export interface Props {
+    currentPage?: string;
+}
+
+const { currentPage } = Astro.props;
+
+function isCurrent(page: string) {
+    return currentPage === page ? { "aria-current": "page" as const } : {};
+}
+---
+
+<nav class="navbar is-dark" aria-label="main navigation" data-jc-id="4NYWI2">
+    <div class="navbar-brand" data-jc-id="4NYWNA">
+        <a class="navbar-item" href="/" data-jc-id="4NYX8O" data-jc-content="navbar.link.studio-pulse"> Studio Pulse </a>
+        <button
+            type="button"
+            class="navbar-burger"
+            aria-label="menu"
+            aria-expanded="false"
+            data-target="mainNavbar"
+        data-jc-id="4NYXDT">
+            <span aria-hidden="true" data-jc-id="4NYYUD"></span>
+            <span aria-hidden="true" data-jc-id="4NYZG1"></span>
+            <span aria-hidden="true" data-jc-id="4NYZK7"></span>
+        </button>
+    </div>
+    <div id="mainNavbar" class="navbar-menu" data-jc-id="4NZ07M">
+        <div class="navbar-end" data-jc-id="4NZ0BX">
+            <a class="navbar-item" href="/" {...isCurrent("home")} data-jc-id="4NZ0XD" data-jc-content="navbar.link.home.2">Home</a>
+            <a class="navbar-item" href="/about" {...isCurrent("about")} data-jc-id="4NZ145" data-jc-content="navbar.link.about.3">About</a>
+            <a class="navbar-item" href="/blog" {...isCurrent("blog")} data-jc-id="4NZ1T7" data-jc-content="navbar.link.blog.4">Blog</a>
+            <a class="navbar-item" href="/contact" {...isCurrent("contact")} data-jc-id="2KT7WP" data-jc-content="navbar.link.contact.5">Contact</a>
+            <div class="navbar-item" data-jc-id="2KT8MI">
+                <button
+                    class="theme-toggle"
+                    type="button"
+                    aria-label="Toggle dark mode"
+                data-jc-id="2KT8Q0">
+                    <span class="icon-sun" aria-hidden="true" data-jc-id="2KTA4U">☀️</span>
+                    <span class="icon-moon" aria-hidden="true" data-jc-id="2KTAT0">🌙</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<script>
+    (() => {
+        function applyTheme(isDark: boolean) {
+            if (isDark) {
+                document.documentElement.setAttribute("data-theme", "dark");
+                localStorage.setItem("theme", "dark");
+            } else {
+                document.documentElement.removeAttribute("data-theme");
+                localStorage.setItem("theme", "light");
+            }
+        }
+
+        function syncTheme() {
+            const stored = localStorage.getItem("theme");
+            const prefersDark = window.matchMedia(
+                "(prefers-color-scheme: dark)",
+            ).matches;
+            if (stored === "dark" || (!stored && prefersDark)) {
+                document.documentElement.setAttribute("data-theme", "dark");
+            } else if (stored === "light") {
+                document.documentElement.removeAttribute("data-theme");
+            }
+        }
+
+        document.addEventListener("click", (e) => {
+            const burger = (e.target as Element).closest(".navbar-burger");
+            if (burger) {
+                const target = burger.getAttribute("data-target");
+                const menu = document.getElementById(target!);
+                if (menu) {
+                    burger.classList.toggle("is-active");
+                    menu.classList.toggle("is-active");
+                }
+                return;
+            }
+
+            const toggle = (e.target as Element).closest(".theme-toggle");
+            if (toggle) {
+                const isDark = document.documentElement.hasAttribute("data-theme");
+                const next = !isDark;
+                if (!document.startViewTransition) {
+                    applyTheme(next);
+                    return;
+                }
+                document.startViewTransition(() => applyTheme(next));
+            }
+        });
+
+        syncTheme();
+        document.addEventListener("astro:page-load", syncTheme);
+    })();
+</script>

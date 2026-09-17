@@ -1,0 +1,73 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Contact" currentPage="contact" data-jc-id="5J1DQ9">
+	<section class="section section-hero" aria-labelledby="contact-heading" data-jc-id="TBYSP7">
+		<div class="container has-text-centered" data-jc-id="TBYSJ1">
+			<p class="tag is-primary is-medium mb-5" data-jc-id="TBYRWS" data-jc-content="contact.description">Contact</p>
+			<h1 id="contact-heading" class="title is-1" data-jc-id="TBYRSB" data-jc-content="contact.title">
+				Let's make something great
+			</h1>
+			<p class="subtitle is-4 mt-4 u-constrained-sm" data-jc-id="TBYR2J" data-jc-content="contact.text.2">
+				New project, partnership, or just want to say hello?
+				We read every message.
+			</p>
+		</div>
+	</section>
+
+	<section class="section has-bg-elevated" aria-label="Contact form" data-jc-id="TBYPNX">
+		<div class="container u-constrained-md" data-jc-id="TBYOZT">
+			<form class="box is-spacious" data-jc-id="TBYOW9">
+				<div class="field" data-jc-id="TBYOTJ">
+					<label class="label" for="name" data-jc-id="TBYO90">Full name</label>
+					<div class="control" data-jc-id="TBYO4K">
+						<input class="input is-medium" id="name" type="text" placeholder="Jane Cooper" required autocomplete="name" data-jc-id="TBYO21"/>
+					</div>
+				</div>
+				<div class="field" data-jc-id="TBYMPV">
+					<label class="label" for="email" data-jc-id="TBYMNF">Work email</label>
+					<div class="control" data-jc-id="E3HZYD">
+						<input class="input is-medium" id="email" type="email" placeholder="jane@company.com" required autocomplete="email" data-jc-id="E3I00W"/>
+					</div>
+				</div>
+				<div class="field" data-jc-id="E3I0VS">
+					<label class="label" for="budget" data-jc-id="E3I1FQ">Budget range</label>
+					<div class="control" data-jc-id="E3I1KW">
+						<div class="select is-medium is-fullwidth" data-jc-id="E3I1NF">
+							<select id="budget" required data-jc-id="E3I29U">
+								<option value="" disabled selected data-jc-id="E3I2D8">Select a range</option>
+								<option value="10k-25k" data-jc-id="E3I319">$10k – $25k</option>
+								<option value="25k-50k" data-jc-id="E3I3NQ">$25k – $50k</option>
+								<option value="50k-100k" data-jc-id="E3I3S4">$50k – $100k</option>
+								<option value="100k+" data-jc-id="E3I4F8">$100k+</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="field" data-jc-id="E3I557">
+					<label class="label" for="message" data-jc-id="E3I57N">Tell us about the project</label>
+					<div class="control" data-jc-id="E3I5VV">
+						<textarea class="textarea is-medium" id="message" placeholder="Goals, timeline, what success looks like..." rows="5" data-jc-id="E3I5YE"></textarea>
+					</div>
+				</div>
+				<div class="field mt-5" data-jc-id="E3I6TK">
+					<div class="control" data-jc-id="E3IMYT">
+						<button class="button is-primary is-medium is-fullwidth" type="submit" data-jc-id="E3IN1C">
+							Send message
+						</button>
+					</div>
+				</div>
+			</form>
+
+			<div class="has-text-centered mt-6" data-jc-id="E3INW8">
+				<p class="is-size-5 has-text-weight-semibold has-text-white mb-4" data-jc-id="E3IOHS" data-jc-content="contact.text.3">
+					Prefer to reach out directly?
+				</p>
+				<p class="mb-2" data-jc-id="E3IP9H" data-jc-content="contact.text.4">
+					<a href="mailto:hello@example.com" class="has-text-primary" data-jc-id="E3IPBU" data-jc-content="contact.link.hello-example-com">hello@example.com</a>
+				</p>
+			</div>
+		</div>
+	</section>
+</Layout>

@@ -1,0 +1,14 @@
+---
+export interface Props {
+    title: string;
+    icon?: string;
+}
+
+const { title, icon } = Astro.props;
+---
+
+<div class="box" data-jc-id="MYPPVD">
+    {icon && <span class="icon-lg mb-4" aria-hidden="true" data-jc-id="MYPPSR">{icon}</span>}
+    <h3 class="title is-4" data-jc-id="MYPP5D">{title}</h3>
+    <p data-jc-id="MYPP1X"><slot data-jc-id="MYPP19"/></p>
+</div>
